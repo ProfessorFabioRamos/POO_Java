@@ -37,18 +37,47 @@ public class Main {
         // }
         // System.out.println("Fim.");
 
-        Scanner sc = new Scanner(System.in);
-        float somatorio = 0;
-        int repeticoes = 10;
+        // Scanner sc = new Scanner(System.in);
+        // float somatorio = 0;
+        // int repeticoes = 10;
 
-        for(int i = 0; i < repeticoes; i++){
-            System.out.print("Digite o numero "+(i+1)+": ");
+        // for(int i = 0; i < repeticoes; i++){
+        //     System.out.print("Digite o numero "+(i+1)+": ");
+        //     float num = sc.nextFloat();
+        //     somatorio += num;
+        // }
+        // System.out.print("Somatório: "+somatorio);
+        // System.out.print("Média: "+(somatorio/repeticoes));
+        // sc.close();
+
+        Scanner sc = new Scanner(System.in);
+
+        int contador = 0;
+        float somatorio = 0;
+
+        //while(somatorio < 1000){
+        while(true){
+            System.out.print("Digite um numero: ");
+            float num = sc.nextFloat();
+            if(num == 0){
+                break;
+            }
+            somatorio += num;
+            contador++;
+        }
+        System.out.println("Soma total:"+somatorio);
+        System.out.println("Média: "+(somatorio/contador));
+        sc.close();
+/////////////////////////////////////////////////////////////////////
+
+        contador = 0;
+        somatorio = 1000;
+
+        do{
+            System.out.print("Digite um numero: ");
             float num = sc.nextFloat();
             somatorio += num;
-        }
-        System.out.print("Somatório: "+somatorio);
-        System.out.print("Média: "+(somatorio/repeticoes));
-        sc.close();
-
+            contador++;
+        }while(somatorio < 1000);
     }
 }
