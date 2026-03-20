@@ -9,6 +9,14 @@ public class Main{
         carro_1.setAno(2018);   // valor válido
         carro_1.setAno(2077);   // valor inválido
         System.out.println(carro_1.getAno());
-        //carro_1.mostrarInfo();
+        carro_1.setMarca("Lamborghini");
+        carro_1.setMarca(null);
+        carro_1.setMarca("");
+        System.out.println(carro_1.getMarca());
+        carro_1.setModelo("Gallardo");
+        carro_1.setModelo(null);
+        carro_1.setModelo("");
+        System.out.println(carro_1.getModelo());
+        carro_1.mostrarInfo();
     }
 }
