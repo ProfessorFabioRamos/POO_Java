@@ -23,7 +23,7 @@ public class Carro {
 
     // Sobrecarga do método acelerar()
     public void acelerar(float novaVelocidade){
-        // Format de String = %d (int) %f(String)  %f(decimais float e double)
+        // Format de String = %d (int) %s(String)  %f(decimais float e double)
         String texto = String.format(
             "Nova velocidade: %.2f Km/h", novaVelocidade);
         System.out.println(texto);
