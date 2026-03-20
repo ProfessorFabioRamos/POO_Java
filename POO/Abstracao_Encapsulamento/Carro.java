@@ -56,6 +56,23 @@ public class Carro {
         }
     }
 
+    public void setMarca(String novaMarca){
+        if(novaMarca != null && !novaMarca.isEmpty()){
+            marca = novaMarca;
+        }
+        else{
+            System.out.println("Marca inválida");
+        }
+    }
+
+    public void setModelo(String novoModelo){
+        // If e else sem chaves {} apenas se for um único comando
+        if(novoModelo != null && !novoModelo.isEmpty())
+            modelo = novoModelo;
+        else
+            System.out.println("Modelo inválido");
+    }
+    
     public void mostrarInfo(){
         System.out.println("Marca: "+this.marca);
         System.out.println("Modelo: "+this.modelo);
