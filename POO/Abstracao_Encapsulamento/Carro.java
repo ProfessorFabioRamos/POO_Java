@@ -1,5 +1,6 @@
 public class Carro {
     // Atributos (variáveis)
+    // Atributos encapsulados (private)
     private String marca;
     private String modelo;
     private int ano;
@@ -30,8 +31,29 @@ public class Carro {
     }
 
     // Com retorno
-    public String mostrarMarca(){
-        return this.marca;
+    // Getter
+    public String getMarca(){
+        String marcaUpper = marca.toUpperCase();
+        return marcaUpper;
+    }
+    // Getter
+    public String getModelo(){
+        String modeloLower = modelo.toLowerCase();
+        return modeloLower;
+    }
+
+    public int getAno(){
+        return ano;
+    }
+
+    //Setter
+    public void setAno(int novoAno){
+        if(novoAno > 2000 && novoAno <= 2026){
+            ano = novoAno;
+        } 
+        else{
+            System.out.println("Ano inválido");
+        }
     }
 
     public void mostrarInfo(){
