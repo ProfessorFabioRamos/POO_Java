@@ -20,6 +20,15 @@ public class Carro {
     public void acelerar(){
         System.out.println("VRUUUUUMMMMM");
     }
+
+    // Sobrecarga do método acelerar()
+    public void acelerar(float novaVelocidade){
+        // Format de String = %d (int) %f(String)  %f(decimais float e double)
+        String texto = String.format(
+            "Nova velocidade: %.2f Km/h", novaVelocidade);
+        System.out.println(texto);
+    }
+
     // Com retorno
     public String mostrarMarca(){
         return this.marca;
