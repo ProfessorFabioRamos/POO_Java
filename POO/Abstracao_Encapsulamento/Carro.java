@@ -30,10 +30,15 @@ public class Carro {
         System.out.println(texto);
     }
 
+    //Método privado (só pode ser usado dentro da classe)
+    private String maiusculo(String txt){
+        return txt.toUpperCase();
+    }
+
     // Com retorno
     // Getter
     public String getMarca(){
-        String marcaUpper = marca.toUpperCase();
+        String marcaUpper = maiusculo(marca);
         return marcaUpper;
     }
     // Getter
