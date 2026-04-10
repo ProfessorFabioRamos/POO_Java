@@ -1,13 +1,12 @@
 package veiculos;
 
-// Classe Abstrata (não instancia objetos)
 public abstract class Veiculo {
-    public String nome;
-    public double velocidade;
+    protected String nome;
+    protected double velocidade;
 
     public Veiculo(String nome){
         this.nome = nome;
-        velocidade = 0;
+        this.velocidade = 0;
     }
 
     public void acelerar(double incremento){
@@ -15,16 +14,21 @@ public abstract class Veiculo {
             velocidade += incremento;
         }
     }
-    
-    public void frear(double decremento){
-        if(decremento > 0){
-            velocidade -= decremento;
+
+    public void desacelerar(double drecremento){
+        if(drecremento > 0){
+            velocidade -= drecremento;
             if(velocidade < 0){
                 velocidade = 0;
             }
         }
     }
 
-    // Método Abstrato - contrato que obriga as subclasses a implementar este método
+    // Método abstrato
     public abstract void mover();
+
+    public void mostrarInfo(){
+        System.out.println("Nome: "+nome);
+        System.out.println("Velocidade: "+velocidade);
+    }
 }
