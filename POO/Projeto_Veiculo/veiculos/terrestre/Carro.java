@@ -10,7 +10,7 @@ public class Carro extends Terrestre{
 
     @Override // Método abstrato de Veículo, obrigação de implementar
     public void mover() {
-        System.out.println(String.format("O Carro %s está se movendo com a velocidade %f km/h",this.nome,this.velocidade));
+        System.out.println(String.format("O Carro %s está se movendo com a velocidade %.2f km/h",this.nome,this.velocidade));
     }
 
     @Override
