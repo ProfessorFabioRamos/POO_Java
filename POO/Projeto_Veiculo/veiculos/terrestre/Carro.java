@@ -16,6 +16,7 @@ public class Carro extends Terrestre{
     @Override
     public void mostrarInfo(){
         super.mostrarInfo();
-        System.out.println("Tipo de Combustível: "+this.tipoCombustivel);
+        System.out.println("Quantidade de Rodas: "+numeroRodas);
+        System.out.println("Tipo de Combustível: "+tipoCombustivel);
     }
 }
