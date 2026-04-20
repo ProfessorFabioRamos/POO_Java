@@ -30,4 +30,11 @@ public class JatoGuerra extends Aereo{
         misseis -=1;
         System.out.print("Míssil atirado. Misséis restantes:"+ misseis);
     }
+
+    @Override
+    public void mostrarInfo(){
+        super.mostrarInfo();
+        System.out.println("Altitude: "+ altitude);
+        System.out.println("Mísseis: "+ misseis);
+    }
 }
