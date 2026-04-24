@@ -2,6 +2,7 @@ package app;
 
 import veiculos.terrestre.Carro;
 import veiculos.aereo.JatoGuerra;
+import veiculos.aquatico.Jetski;
 
 //import veiculos.Veiculo;
 //import veiculos.terrestre.Terrestre;
@@ -33,5 +34,11 @@ public class Main {
         jato_1.perderAltitude(50000);
         jato_1.desacelerar(2100);
         jato_1.mostrarInfo();
+
+        Jetski jetski_1 = new Jetski("Yamaha FX", true, 2);
+        jetski_1.acelerar(50);
+        jetski_1.mover();
+        jetski_1.desacelerar(40);
+        jetski_1.mostrarInfo();
     }
 }
