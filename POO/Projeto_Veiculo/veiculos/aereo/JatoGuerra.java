@@ -10,7 +10,7 @@ public class JatoGuerra extends Aereo{
 
     @Override
     public void mover(){
-        System.out.println(String.format("O Jato %s está se movendo com a velocidade %.2f km/h a uma altitude de %.2f metros.", nome, velocidade, altitude));
+        System.out.println(String.format("O Jato %s está se movendo com a velocidade %.2f km/h a uma altitude de %.2f pés.", nome, velocidade, altitude));
     }
     
     @Override
