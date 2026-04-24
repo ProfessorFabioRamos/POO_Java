@@ -9,7 +9,8 @@ public abstract class Aereo extends Veiculo{
         super(nome);
         this.altitude = 0;
     }
-    
-    public abstract void ganharAltitude();
-    public abstract void perderAltitude();
+
+    // Métodos Abstratos
+    public abstract void ganharAltitude(double incremento); 
+    public abstract void perderAltitude(double decremento); 
 }
