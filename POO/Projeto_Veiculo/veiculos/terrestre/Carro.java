@@ -47,7 +47,7 @@ public class Carro extends Terrestre implements IMotorizado, ITripulavel{
     public void embarcar(int quantidade){
         if(passageiros < 5){
             passageiros += quantidade;
-            System.out.println(quantidade+" passageiros.");
+            System.out.println(passageiros+" passageiros.");
         }
     }
 
@@ -55,7 +55,7 @@ public class Carro extends Terrestre implements IMotorizado, ITripulavel{
     public void desembarcar(int quantidade){
         if(passageiros > 0){
             passageiros -= quantidade;
-            System.out.println(quantidade+" passageiros.");
+            System.out.println(passageiros+" passageiros.");
         }
     }
 
@@ -65,6 +65,9 @@ public class Carro extends Terrestre implements IMotorizado, ITripulavel{
         // o padrão é true, para false ! antes do nome
         if(motorLigado){
             super.acelerar(incremento);
+        }
+        else{
+            System.out.println("O motor está desligado, não é possível acelerar.");
         }
     }
 }
