@@ -58,4 +58,13 @@ public class Carro extends Terrestre implements IMotorizado, ITripulavel{
             System.out.println(quantidade+" passageiros.");
         }
     }
+
+    @Override
+    public void acelerar(double incremento){
+        // Se boolean está dentro de if não é necessário utilizar ==
+        // o padrão é true, para false ! antes do nome
+        if(motorLigado){
+            super.acelerar(incremento);
+        }
+    }
 }
