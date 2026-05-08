@@ -40,5 +40,11 @@ public class Main {
         jetski_1.mover();
         jetski_1.desacelerar(40);
         jetski_1.mostrarInfo();
+
+        // Criar carro Fuscão Preto, 4 rodas, Etanol
+        // Embaracar 8 pessoas, ligar o motor,
+        // Acelerar até 100km/h, desacelerar até 80km/h
+        // Desacelerar atér parar, desligar motor
+        // Desembarcar os 8 passageiros
     }
 }
