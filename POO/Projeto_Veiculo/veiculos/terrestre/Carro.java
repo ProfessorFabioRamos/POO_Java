@@ -3,27 +3,28 @@ package veiculos.terrestre;
 import veiculos.interfaces.IMotorizado;
 import veiculos.interfaces.ITripulavel;
 
+// Classe Concreta
 public class Carro extends Terrestre implements IMotorizado, ITripulavel{
     protected String tipoCombustivel;
     protected boolean motorLigado;
     protected int passageiros;
 
-    public Carro(String nome, int numeroRodas,String tipoCombustivel){
-        super(nome,numeroRodas);
+    public Carro(String nome, int numeroRodas, String tipoCombustivel){
+        super(nome, numeroRodas);
         this.tipoCombustivel = tipoCombustivel;
         this.motorLigado = false;
         this.passageiros = 0;
     }
 
-    @Override // Método abstrato de Veículo, obrigação de implementar
-    public void mover() {
-        System.out.println(String.format("O Carro %s está se movendo com a velocidade %.2f km/h",this.nome,this.velocidade));
+    @Override
+    public void mover(){
+        System.out.println(String.format("O Carro %s está se movendo com a velocidade %.2f km/h.", this.nome,this.velocidade));
     }
 
     @Override
     public void mostrarInfo(){
         super.mostrarInfo();
-        System.out.println("Quantidade de Rodas: "+numeroRodas);
+        System.out.println("Numero de rodas: "+numeroRodas);
         System.out.println("Tipo de Combustível: "+tipoCombustivel);
     }
 
@@ -34,7 +35,6 @@ public class Carro extends Terrestre implements IMotorizado, ITripulavel{
             System.out.println("Motor está ligado!");
         }
     }
-
     @Override
     public void desligarMotor(){
         if(velocidade == 0){
@@ -42,27 +42,23 @@ public class Carro extends Terrestre implements IMotorizado, ITripulavel{
             System.out.println("Motor desligado!");
         }
     }
-
     @Override
     public void embarcar(int quantidade){
         if(passageiros < 5){
             passageiros += quantidade;
-            System.out.println(passageiros+" passageiros.");
+            System.out.println(passageiros+" passageiros no veículo.");
         }
     }
-
     @Override
     public void desembarcar(int quantidade){
         if(passageiros > 0){
             passageiros -= quantidade;
-            System.out.println(passageiros+" passageiros.");
+            System.out.println(passageiros+" passageiros no veículo.");
         }
     }
 
     @Override
     public void acelerar(double incremento){
-        // Se boolean está dentro de if não é necessário utilizar ==
-        // o padrão é true, para false ! antes do nome
         if(motorLigado){
             super.acelerar(incremento);
         }
