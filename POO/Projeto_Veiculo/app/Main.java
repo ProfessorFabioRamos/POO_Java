@@ -46,5 +46,16 @@ public class Main {
         // Acelerar até 100km/h, desacelerar até 80km/h
         // Desacelerar atér parar, desligar motor
         // Desembarcar os 8 passageiros
+        Carro carro_3 = new Carro("Fuscão Preto", 4, "Etanol");
+        carro_3.embarcar(8);
+        carro_3.ligarMotor();
+        carro_3.acelerar(100);
+        carro_3.mover();
+        carro_3.desacelerar(20);
+        carro_3.mover();
+        carro_3.desacelerar(80);
+        carro_3.mover();
+        carro_3.desligarMotor();
+        carro_3.desembarcar(8);
     }
 }
