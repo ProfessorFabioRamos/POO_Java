@@ -1,32 +1,47 @@
-import java.util.Scanner;
+import java.util.logging.Logger;
 
-public class SistemaCaixaEletronico {
-    public static void main(String[] args){
-        Scanner scanner = new Scanner(System.in);
-        ContaBancaria conta = new ContaBancaria("Neymar Junior", 50.0);
+public class ContaBancaria {
+    private String titular;
+    private double saldo;
 
-        System.out.println("--- Bem vindo ao banco Master ---");
+    private static final Logger logger = Logger.getLogger(ContaBancaria.class.getName());
 
-        try{
-            //Operação 1: Sucesso
-            conta.depositar(200.0);
-            System.out.println("Saldo atual: R$"+conta.verificarSaldo());
-            //Operação 2: Saldo Insuficiente
-            System.out.print("Quanto deseja sacar? R$");
-            double valorSaque = scanner.nextDouble(); // Valor maior do que o saldo
-            conta.sacar(valorSaque);
+    public ContaBancaria(String titular, double saldoInicial){
+        this.titular = titular;
+        this.saldo = saldoInicial;
+        logger.info("Conta criada para "+titular+"com saldo de R$ "+saldoInicial);
+    }
 
-            //Operação 3: Deposito negativo
-            System.out.print("Quanto deseja depositar? R$");
-            double valorDeposito = scanner.nextDouble(); // Valor menor ou igual a zero
-            conta.depositar(valorDeposito);
-        }catch(SaldoInsuficienteException e){
-            System.out.println("Erro de saldo!: "+e.getMessage());
-        }catch(ValorInvalidoException e){
-            System.out.println("Erro de valor!: "+e.getMessage());
-        }finally{
-            System.out.println("Encerrando operações.");
-            scanner.close();
+    public double verificarSaldo(){
+        return saldo;
+    }
+
+    public void depositar(double valor) throws ValorInvalidoException{
+        logger.info("Iniciando operação de depósito. Valor: R$"+valor);
+
+        if(valor <= 0){
+            // Fazemos o log warning e disparamos o erro
+            logger.warning("Falha no depósito: Tentativa de depositar valor negativo ou zero.Titular: "+titular);
+            throw new ValorInvalidoException("O valor de depósito deve ser maior que zero!");
         }
+        saldo += valor;
+        logger.info("Depósito realizado com sucesso. Novo saldo: R$"+saldo);
+    }
+
+    public void sacar(double valor) throws ValorInvalidoException, SaldoInsuficienteException{
+        logger.info("Iniciando operação de saque. Valor: R$"+valor);
+
+        if(valor <= 0){
+            logger.warning("Falha no saque: Tentativa de sacar valor negativo ou zero. Titular: "+titular);
+            throw new ValorInvalidoException("O valor do saque deve ser maior que zero!");
+        }
+        
+        if(valor > saldo){
+            //Erro severo
+            logger.severe("Falha crítica: Saque negado. Saldo: R$"+saldo+"| Tentativa: R$"+valor+"| Titular: "+titular);
+            throw new SaldoInsuficienteException("Você não tem limite para este saque! Saldo atual: R$"+saldo);
+        }
+        saldo -= valor;
+        logger.info("Saque de R$"+valor+" realizado com sucesso.");
     }
 }
