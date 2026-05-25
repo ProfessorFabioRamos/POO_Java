@@ -39,7 +39,7 @@ public class ContaBancaria {
         if(valor > saldo){
             //Erro severo
             logger.severe("Falha critica: Saque negado. Saldo: R$"+saldo+"| Tentativa: "+valor+"| Titular: "+titular);
-            throw new SaldoInsuficienteException("Você não tem limite suficiente para este saque! Saque atual: R$"+saldo);
+            throw new SaldoInsuficienteException("Você não tem limite suficiente para este saque! Saldo atual: R$"+saldo);
         }
         saldo -= valor;
         logger.info("Saque de R$"+valor+" realizado com sucesso.");
