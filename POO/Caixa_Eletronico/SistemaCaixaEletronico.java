@@ -19,7 +19,8 @@ public class SistemaCaixaEletronico {
             // Operação 3: Vai gerar ValorInvalidoException com deposito
             System.out.print("\nQuanto deseja depositar? R$ ");
             double valorDeposito = scanner.nextDouble(); // Digitar valor menor que zero ou zero
-
+            conta.depositar(valorDeposito);
+            
             // Operação 4: Vai gerar ValorInvalidoException com saque
             System.out.print("\nQuanto deseja sacar? R$ ");
             double valorSaque = scanner.nextDouble(); // Digitar valor menor que zero ou zero
@@ -34,14 +35,9 @@ public class SistemaCaixaEletronico {
         }catch(ValorInvalidoException e){
             System.out.println("\n[ERRO DE NEGÓCIO]: " + e.getMessage());
             System.out.println("Gostaria de fazer um empréstimo?"); // Ação amigável após o erro
-        }
-         } catch (ValorInvalidoException e) {
-            System.out.println("\n[ERRO DE VALIDAÇÃO]: " + e.getMessage());
-            
-        } catch (Exception e) {
+        }catch (Exception e) {
             // Erros não mapeados (como digitar uma letra no valor do saque)
             System.out.println("\n[ERRO DO SISTEMA]: Ocorreu um problema inesperado. Contate o gerente.");
-            
         } finally {
             System.out.println("\n----------------------------------------");
             System.out.println("Encerrando a sessão de " + conta.verificarSaldo() + " reais.");
