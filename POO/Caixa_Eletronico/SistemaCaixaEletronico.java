@@ -12,7 +12,7 @@ public class SistemaCaixaEletronico {
             conta.depositar(200.00);
             System.out.println("Saldo atual:R$"+conta.verificarSaldo());
 
-            // Operação 2: Sucesso de depósito
+            // Operação 2: Sucesso de saque
             conta.sacar(20.00);
             System.out.println("Saldo atual:R$"+conta.verificarSaldo());
 
@@ -44,7 +44,7 @@ public class SistemaCaixaEletronico {
             System.out.println("\n[ERRO DO SISTEMA]: Ocorreu um problema inesperado. Contate o gerente.");
         } finally {
             System.out.println("\n----------------------------------------");
-            System.out.println("Encerrando a sessão de " + conta.verificarSaldo() + " reais.");
+            System.out.println("Encerrando a sessão com " + conta.verificarSaldo() + " reais.");
             System.out.println("Obrigado por utilizar nosso banco!");
             scanner.close();
         }
