@@ -12,15 +12,15 @@ import javax.swing.JCheckBox;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
+//import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.GridBagLayout;
+//import java.awt.GridBagLayout;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+//import java.awt.event.ActionEvent;
+//import java.awt.event.ActionListener;
 
 public class TelaPedido extends JFrame{
-    private JTextField txtNome, txtSabor;
+    private JTextField txtNome;
     private JLabel labelResumo;
     private JComboBox<String> cbSabor;
     private JCheckBox checkBorda;
@@ -28,7 +28,7 @@ public class TelaPedido extends JFrame{
     public TelaPedido(){
         // Configurações  basicas da janela
         setTitle("Pizzaria Mario");
-        setSize(500,350);
+        setSize(550,350);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout(10,10));
 
@@ -61,7 +61,7 @@ public class TelaPedido extends JFrame{
 
         // Label de resumo
         labelResumo = new JLabel("Aguardando pedido...",SwingConstants.CENTER);
-        labelResumo.setForeground(new Color(0,102,204)); // 0 a 255 
+        labelResumo.setForeground(new Color(125, 181, 81)); // 0 a 255 
         labelResumo.setBorder(BorderFactory.createEmptyBorder(10,10,20,10));
 
         //Janela Final
@@ -73,13 +73,19 @@ public class TelaPedido extends JFrame{
     public void processarPedido(){
         try{
             String nome = txtNome.getText().trim();
-            String sabor = txtSabor.getText().trim();
+            String sabor = (String) cbSabor.getSelectedItem();
+            boolean borda = checkBorda.isSelected();
 
-            if(nome.isEmpty() || sabor.isEmpty()){
-                throw new PedidoInvalidoException("Todos os campos devem ser preenchidos");
+            if(nome.isEmpty()){
+                throw new PedidoInvalidoException("O nome deve ser preenchido");
+            }
+            if(sabor == null || sabor == "Selecione um sabor"){
+                throw new PedidoInvalidoException("Selecione um sabor válido");
             }
             // Sucesso
-            String msg = "Pedido de "+nome+": Pizza de "+sabor;
+            String textoBorda = borda ? "COM borda recheada" : "SEM borda recheada";
+            String msg = "Pedido de "+nome+": Pizza de "+sabor+"("+textoBorda+")";
+
             JOptionPane.showMessageDialog(this, "Pedido enviado com sucesso");
             labelResumo.setText("Último pedido: "+msg);
         }catch(PedidoInvalidoException e){
